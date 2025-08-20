@@ -1,14 +1,15 @@
 #%%
 
 import pandas as pd
+from sklearn import linear_model
+from sklearn import tree
+import matplotlib.pyplot as plt
+
 
 df = pd.read_excel("dados_cerveja_nota.xlsx")
 df.head()
 
 # %%
-
-from sklearn import linear_model
-from sklearn import tree
 
 X = df[['cerveja']]   # X é uma matriz (DF)
 y = df['nota']        # y é um vetor (series)
@@ -36,8 +37,6 @@ predict_arvore_d2 = arvore_d2.predict(X.drop_duplicates())
 # %%
 
 #plot do gráfico
-import matplotlib.pyplot as plt
-
 plt.plot(X['cerveja'], y, 'o')
 plt.grid(True)
 plt.title('Relação Cerveja vs Nota')
